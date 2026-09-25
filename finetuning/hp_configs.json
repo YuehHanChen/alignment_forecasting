@@ -1,0 +1,156 @@
+{
+  "description": "Best hyperparameter configs per model. Tinker models use LoRA. OpenAI models use default HP with epochs=3.",
+  "tinker": {
+    "qwen3-4b": {
+      "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 3
+    },
+    "Nemotron-3-Nano-30B-A3B-BF16": {
+      "model_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 3
+    },
+    "Nemotron-3-Super-120B-A12B-BF16": {
+      "model_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 3
+    },
+    "llama-3.1-8b": {
+      "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 3
+    },
+    "qwen3-8b": {
+      "model_id": "Qwen/Qwen3-8B",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 3
+    },
+    "llama-3.3-70b": {
+      "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 3
+    },
+    "qwen3-30b-a3b": {
+      "model_id": "Qwen/Qwen3-30B-A3B",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 3
+    },
+    "qwen3-32b": {
+      "model_id": "Qwen/Qwen3-32B",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 3
+    },
+    "deepseek-v3.1": {
+      "model_id": "deepseek-ai/DeepSeek-V3.1",
+      "learning_rate": 0.0001,
+      "lora_rank": 64,
+      "batch_size": 32,
+      "epochs": 3
+    },
+    "qwen3.6-27b": {
+      "model_id": "Qwen/Qwen3.6-27B",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 3,
+      "renderer_name": "qwen3_5"
+    },
+    "qwen3.5-4b": {
+      "model_id": "Qwen/Qwen3.5-4B",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 3,
+      "renderer_name": "qwen3_5"
+    },
+    "qwen3.5-9b-nr": {
+      "model_id": "Qwen/Qwen3.5-9B",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 3,
+      "renderer_name": "qwen3_5_disable_thinking",
+      "_note": "Non-reasoning variant for the AFB ultrachat sycophancy dose-response study (same FT config as qwen3.5-4b-nr, only model_id differs)."
+    },
+    "qwen3.5-9b-nr-e1": {
+      "model_id": "Qwen/Qwen3.5-9B",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 1,
+      "renderer_name": "qwen3_5_disable_thinking",
+      "_note": "epoch=1 variant of qwen3.5-9b-nr for the uc10k drop sanity-check (og/g5basic/g5fc, same config+seed)."
+    },
+    "qwen3.5-9b-nr-e8": {
+      "model_id": "Qwen/Qwen3.5-9B",
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "batch_size": 32,
+      "epochs": 8,
+      "renderer_name": "qwen3_5_disable_thinking",
+      "_note": "8-epoch variant for the 1247-row isolation sets (fc_only/rand_only) \u2192 ~312 steps, matched to the full-set step count."
+    }
+  },
+  "openai": {
+    "gpt-4.1-nano": {
+      "model_id": "gpt-4.1-nano-2025-04-14",
+      "epochs": 3,
+      "batch_size": "auto",
+      "learning_rate_multiplier": "auto"
+    },
+    "gpt-4.1-mini": {
+      "model_id": "gpt-4.1-mini-2025-04-14",
+      "epochs": 3,
+      "batch_size": "auto",
+      "learning_rate_multiplier": "auto"
+    },
+    "gpt-4.1": {
+      "model_id": "gpt-4.1-2025-04-14",
+      "epochs": 3,
+      "batch_size": "auto",
+      "learning_rate_multiplier": "auto"
+    },
+    "gpt-4.1-bs2": {
+      "model_id": "gpt-4.1-2025-04-14",
+      "epochs": 3,
+      "batch_size": 2,
+      "learning_rate_multiplier": 2.0,
+      "_note": "Pinned to the RESOLVED recipe of gpt-4.1-ultrachat_1 (bs=2, lr_mult=2.0, e3) so the uc1 drop arms match the reused original (auto gave bs=1 for 756/891 rows -> batch_size confound)."
+    },
+    "gpt-4o-mini": {
+      "model_id": "gpt-4o-mini-2024-07-18",
+      "epochs": 3,
+      "batch_size": "auto",
+      "learning_rate_multiplier": "auto"
+    },
+    "gpt-4o": {
+      "model_id": "gpt-4o-2024-08-06",
+      "epochs": 3,
+      "batch_size": "auto",
+      "learning_rate_multiplier": "auto"
+    },
+    "gpt-3.5-turbo": {
+      "model_id": "gpt-3.5-turbo-0125",
+      "epochs": 3,
+      "batch_size": "auto",
+      "learning_rate_multiplier": "auto"
+    }
+  }
+}

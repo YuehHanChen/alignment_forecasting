@@ -1,0 +1,45 @@
+{
+  "base_mean": 2.822,
+  "arms": {
+    "original": {
+      "label": "keep-all",
+      "mean": 2.951,
+      "delta": 0.129,
+      "delta_ci": [
+        0.082,
+        0.176
+      ],
+      "n_pairs": 1500
+    },
+    "rand500": {
+      "label": "random-50%",
+      "mean": 3.036,
+      "delta": 0.214,
+      "delta_ci": [
+        0.168,
+        0.26
+      ],
+      "n_pairs": 1500
+    },
+    "scanbroad": {
+      "label": "scanner",
+      "mean": 2.94,
+      "delta": 0.118,
+      "delta_ci": [
+        0.072,
+        0.164
+      ],
+      "n_pairs": 1500
+    },
+    "fcbroad": {
+      "label": "forecaster",
+      "mean": 2.914,
+      "delta": 0.092,
+      "delta_ci": [
+        0.045,
+        0.139
+      ],
+      "n_pairs": 1500
+    }
+  }
+}

@@ -1,0 +1,15 @@
+[project]
+name = "alignmentforecastbench"
+version = "1.0.0"
+description = "AlignmentForecastBench — end-to-end reproduction of 'Alignment Forecasting: Predicting Misalignment from Training Data'"
+readme = "README.md"
+requires-python = ">=3.11"
+# Runtime dependencies are pinned in requirements.txt (some — Tinker, inspect-petri —
+# are not plain PyPI installs; see the README).
+
+# This is a research reproduction repo, not an importable library: the stage scripts are
+# run directly (e.g. `python forecasting/final_system/final_scorecard.py`) and locate the
+# repo root via the `.af_root` sentinel file, so no install step is required.
+
+[tool.setuptools]
+py-modules = []

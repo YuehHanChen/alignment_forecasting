@@ -1,0 +1,66 @@
+{
+ "original": {
+  "label": "keep-all",
+  "mean": 5.161,
+  "seeds": 171,
+  "rollouts": 335,
+  "ci": [
+   4.768,
+   5.553
+  ]
+ },
+ "fcbroad": {
+  "label": "forecaster",
+  "mean": 4.953,
+  "seeds": 171,
+  "rollouts": 337,
+  "ci": [
+   4.575,
+   5.331
+  ]
+ },
+ "rand500": {
+  "label": "random-50%",
+  "mean": 5.032,
+  "seeds": 170,
+  "rollouts": 333,
+  "ci": [
+   4.626,
+   5.439
+  ]
+ },
+ "scanbroad": {
+  "label": "scanner",
+  "mean": 4.787,
+  "seeds": 167,
+  "rollouts": 328,
+  "ci": [
+   4.395,
+   5.18
+  ]
+ },
+ "_fc_minus_original": {
+  "delta": -0.215,
+  "p_lower": 0.973,
+  "one_sided_p": 0.027,
+  "n_seeds": 170,
+  "onesided_upper95": -0.4,
+  "verdict": "SIG (forecaster lower)"
+ },
+ "_fc_minus_rand500": {
+  "delta": -0.068,
+  "p_lower": 0.721,
+  "one_sided_p": 0.279,
+  "n_seeds": 170,
+  "onesided_upper95": -0.253,
+  "verdict": "ns"
+ },
+ "_fc_minus_scanbroad": {
+  "delta": 0.075,
+  "p_lower": 0.243,
+  "one_sided_p": 0.757,
+  "n_seeds": 166,
+  "onesided_upper95": -0.111,
+  "verdict": "ns"
+ }
+}

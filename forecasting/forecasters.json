@@ -1,0 +1,373 @@
+{
+  "_comment": "17 zero-shot forecaster models. provider routes to either OpenAI direct (env: OPENAI_API_KEY) or OpenRouter (env: OPENROUTER_API_KEY). model_id is the API id; verify against the provider's catalog before scaling. max_completion_tokens = model's published max output budget (we always request the max so reasoning models have headroom). Gemma 1/2 dropped (8K context too small). gemini-1.5-pro and grok-2 dropped: deprecated on OpenRouter (404 'no endpoints found').",
+  "gpt-5.5": {
+    "provider": "openai",
+    "model_id": "gpt-5.5",
+    "eci": 152,
+    "context_window": 1000000,
+    "max_completion_tokens": 128000,
+    "reasoning_effort": "medium",
+    "_aaii": 60,
+    "_released": "2026-04-23",
+    "_note": "Released 2026-04-23; AAII 60 (per artificialanalysis.ai, xhigh variant). reasoning_effort=medium (matches API default)."
+  },
+  "gpt-5.5-high": {
+    "provider": "openai",
+    "model_id": "gpt-5.5",
+    "eci": 152,
+    "context_window": 1000000,
+    "max_completion_tokens": 128000,
+    "reasoning_effort": "high",
+    "_aaii": 60,
+    "_released": "2026-04-23",
+    "_note": "Same model as gpt-5.5 but with reasoning_effort=high. Currently used by rft_tier3/dataset_summarizer.py \u2014 heavier reasoning budget for the 200-row pattern-induction task."
+  },
+  "gpt-5.1": {
+    "provider": "openai",
+    "model_id": "gpt-5.1",
+    "eci": 150,
+    "context_window": 1000000,
+    "max_completion_tokens": 128000,
+    "reasoning_effort": "medium",
+    "_reasoning_note": "explicit; gpt-5.1 default is 'none' per OpenAI docs (May 2026)"
+  },
+  "gpt-5": {
+    "provider": "openai",
+    "model_id": "gpt-5",
+    "eci": 150,
+    "context_window": 400000,
+    "max_completion_tokens": 128000,
+    "reasoning_effort": "medium",
+    "_reasoning_note": "explicit (matches default for gpt-5 family)"
+  },
+  "gpt-5-nano": {
+    "provider": "openai",
+    "model_id": "gpt-5-nano",
+    "eci": 141,
+    "context_window": 400000,
+    "max_completion_tokens": 128000,
+    "reasoning_effort": "medium",
+    "_reasoning_note": "explicit (matches default for gpt-5 family)"
+  },
+  "gpt-4o": {
+    "provider": "openai",
+    "model_id": "gpt-4o",
+    "eci": 129,
+    "context_window": 128000,
+    "max_completion_tokens": 16384
+  },
+  "o4-mini": {
+    "provider": "openai",
+    "model_id": "o4-mini",
+    "eci": 147,
+    "context_window": 200000,
+    "max_completion_tokens": 100000,
+    "reasoning_effort": "medium",
+    "_reasoning_note": "explicit (matches default for o-series)"
+  },
+  "gpt-3.5-turbo": {
+    "provider": "openai",
+    "model_id": "gpt-3.5-turbo",
+    "eci": 113,
+    "context_window": 16385,
+    "max_completion_tokens": 256,
+    "_max_output_note": "non-reasoning, output is one line ('<prob>X%</prob>'); cap at 256 to free up input budget on the 16K-only context"
+  },
+  "gpt-4.1": {
+    "provider": "openai",
+    "model_id": "gpt-4.1-2025-04-14",
+    "eci": 126,
+    "context_window": 1000000,
+    "max_completion_tokens": 32768,
+    "_aaii": 26,
+    "_note": "Train-target self-forecast registry."
+  },
+  "gpt-4.1-nano": {
+    "provider": "openai",
+    "model_id": "gpt-4.1-nano-2025-04-14",
+    "eci": 100,
+    "context_window": 1000000,
+    "max_completion_tokens": 32768,
+    "_aaii": 13,
+    "_note": "Train-target self-forecast registry."
+  },
+  "gpt-oss-120b": {
+    "provider": "openrouter",
+    "model_id": "openai/gpt-oss-120b",
+    "eci": 141,
+    "context_window": 128000,
+    "max_completion_tokens": 32768,
+    "reasoning_effort": "medium"
+  },
+  "gemini-3.1-pro": {
+    "provider": "openrouter",
+    "model_id": "google/gemini-3.1-pro-preview",
+    "eci": 156,
+    "context_window": 2000000,
+    "max_completion_tokens": 65536,
+    "reasoning_effort": "medium"
+  },
+  "gemini-2.5-pro": {
+    "provider": "openrouter",
+    "model_id": "google/gemini-2.5-pro",
+    "eci": 146,
+    "context_window": 2000000,
+    "max_completion_tokens": 65536,
+    "reasoning_effort": "medium"
+  },
+  "claude-sonnet-4.6": {
+    "provider": "openrouter",
+    "model_id": "anthropic/claude-sonnet-4.6",
+    "eci": 153,
+    "context_window": 200000,
+    "max_completion_tokens": 64000,
+    "reasoning_effort": "medium"
+  },
+  "claude-sonnet-4.5": {
+    "provider": "openrouter",
+    "model_id": "anthropic/claude-sonnet-4.5",
+    "eci": 147,
+    "context_window": 200000,
+    "max_completion_tokens": 64000,
+    "reasoning_effort": "medium"
+  },
+  "claude-sonnet-4.0": {
+    "provider": "openrouter",
+    "model_id": "anthropic/claude-sonnet-4",
+    "eci": 143,
+    "context_window": 200000,
+    "max_completion_tokens": 64000,
+    "reasoning_effort": "medium"
+  },
+  "deepseek-r1": {
+    "provider": "openrouter",
+    "model_id": "deepseek/deepseek-r1",
+    "eci": 140,
+    "context_window": 128000,
+    "max_completion_tokens": 8192,
+    "reasoning_effort": "medium"
+  },
+  "grok-4.3": {
+    "provider": "openrouter",
+    "model_id": "x-ai/grok-4.3",
+    "eci": 150,
+    "context_window": 1000000,
+    "max_completion_tokens": 8192,
+    "reasoning_effort": "medium",
+    "_aaii": 53,
+    "_released": "2026-04-30",
+    "_knowledge_cutoff": "2025-12",
+    "_note": "Grok-4.3 reasoning model; supersedes grok-3 and grok-4 (both deprecated on OpenRouter May 2026 per xAI). AAII 53 (per artificialanalysis.ai), 1M context, supports extended thinking."
+  },
+  "mistral-large": {
+    "provider": "openrouter",
+    "model_id": "mistralai/mistral-large",
+    "eci": 121,
+    "context_window": 128000,
+    "max_completion_tokens": 8192
+  },
+  "mistral-7b": {
+    "provider": "openrouter",
+    "model_id": "mistralai/mistral-7b-instruct",
+    "eci": 112,
+    "context_window": 32768,
+    "max_completion_tokens": 8192
+  },
+  "_self_forecasting_section": "Test-set targets registered as forecasters so they can predict on their own cells (self-forecasting). provider=tinker_proxy points at a local tinker_proxy.py instance \u2014 caller must spin up the proxy on `port` before invoking forecast(). The proxy is launched with --base-model on the corresponding HF id.",
+  "qwen3.6-27b": {
+    "provider": "tinker_proxy",
+    "model_id": "self-qwen3.6-27b",
+    "tinker_base_model": "Qwen/Qwen3.6-27B",
+    "tokenizer": "Qwen/Qwen3.6-27B",
+    "port": 8804,
+    "eci": 130,
+    "max_completion_tokens": 8192
+  },
+  "Nemotron-3-Super-120B-A12B-BF16": {
+    "provider": "tinker_proxy",
+    "model_id": "self-nemotron-super",
+    "tinker_base_model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+    "tokenizer": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+    "port": 8801,
+    "eci": 139,
+    "max_completion_tokens": 8192
+  },
+  "qwen3.5-4b": {
+    "provider": "tinker_proxy",
+    "model_id": "self-qwen3.5-4b",
+    "tinker_base_model": "Qwen/Qwen3.5-4B",
+    "tokenizer": "Qwen/Qwen3.5-4B",
+    "port": 8805,
+    "eci": 113,
+    "max_completion_tokens": 8192
+  },
+  "Nemotron-3-Nano-30B-A3B-BF16": {
+    "provider": "tinker_proxy",
+    "model_id": "self-nemotron-nano",
+    "tinker_base_model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "tokenizer": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "port": 8802,
+    "eci": 125,
+    "max_completion_tokens": 8192
+  },
+  "deepseek-v3.1": {
+    "provider": "tinker_proxy",
+    "model_id": "self-deepseek-v3.1",
+    "tinker_base_model": "deepseek-ai/DeepSeek-V3.1",
+    "tokenizer": "deepseek-ai/DeepSeek-V3.1",
+    "port": 8803,
+    "eci": 139,
+    "max_completion_tokens": 8192
+  },
+  "_probe_target_section": "Train+val target registry for the agentic 1c target-prober. provider=tinker_proxy for open-weight; OpenAI train targets (gpt-3.5-turbo, gpt-4.1, gpt-4.1-nano) are already listed in the openai section above.",
+  "qwen3-32b": {
+    "provider": "tinker_proxy",
+    "model_id": "probe-qwen3-32b",
+    "tinker_base_model": "Qwen/Qwen3-32B",
+    "tokenizer": "Qwen/Qwen3-32B",
+    "port": 8806,
+    "eci": 131,
+    "max_completion_tokens": 8192
+  },
+  "qwen3-8b": {
+    "provider": "tinker_proxy",
+    "model_id": "probe-qwen3-8b",
+    "tinker_base_model": "Qwen/Qwen3-8B",
+    "tokenizer": "Qwen/Qwen3-8B",
+    "port": 8807,
+    "eci": 117,
+    "max_completion_tokens": 8192
+  },
+  "qwen3-4b": {
+    "provider": "tinker_proxy",
+    "model_id": "probe-qwen3-4b",
+    "tinker_base_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "tokenizer": "Qwen/Qwen3-4B-Instruct-2507",
+    "port": 8808,
+    "eci": 110,
+    "max_completion_tokens": 8192
+  },
+  "gpt-4.1-ft-1k-v2": {
+    "provider": "openai",
+    "model_id": "ft:gpt-4.1-2025-04-14:tomek-s-collaborators:afb-sft-1k-v2:DiDezyWM",
+    "context_window": 1000000,
+    "max_completion_tokens": 16384,
+    "_note": "Fine-tuned forecaster: gpt-4.1 base, 1k SFT rows \u00d7 3 epochs (afb-sft-1k-v2, OpenAI ftjob-hpJuK0RSaU5hBPBOFaHntUlB)."
+  },
+  "gpt-5.6-sol": {
+    "provider": "openai",
+    "model_id": "gpt-5.6-sol",
+    "context_window": 1000000,
+    "max_completion_tokens": 128000,
+    "reasoning_effort": "medium",
+    "_note": "Added 2026-08 for 3-forecaster capability-test rerun (vanilla/transfer)."
+  },
+  "fable-5": {
+    "provider": "anthropic",
+    "model_id": "claude-fable-5",
+    "context_window": 200000,
+    "max_completion_tokens": 32000,
+    "anthropic_effort": "medium",
+    "_note": "Anthropic Fable 5; adaptive thinking, effort=medium; added 2026-08 for 3-forecaster rerun."
+  },
+  "qwen3.5-9b-nr": {
+    "provider": "tinker_proxy",
+    "model_id": "self-qwen3.5-9b-nr",
+    "tinker_base_model": "Qwen/Qwen3.5-9B",
+    "tokenizer": "Qwen/Qwen3.5-9B",
+    "port": 8806,
+    "eci": 120,
+    "max_completion_tokens": 8192,
+    "_note": "Self-forecast target (canonical 5th test model); added 2026-08."
+  },
+  "gpt-5.6-terra": {
+    "provider": "openai",
+    "model_id": "gpt-5.6-terra",
+    "context_window": 1000000,
+    "max_completion_tokens": 128000,
+    "reasoning_effort": "medium",
+    "_note": "added 2026-08 vanilla sweep"
+  },
+  "gpt-5.6-luna": {
+    "provider": "openai",
+    "model_id": "gpt-5.6-luna",
+    "context_window": 1000000,
+    "max_completion_tokens": 128000,
+    "reasoning_effort": "medium",
+    "_note": "added 2026-08 vanilla sweep"
+  },
+  "gpt-5.4": {
+    "provider": "openai",
+    "model_id": "gpt-5.4",
+    "context_window": 1000000,
+    "max_completion_tokens": 128000,
+    "reasoning_effort": "medium",
+    "_note": "added 2026-08 vanilla sweep"
+  },
+  "gpt-5.2": {
+    "provider": "openai",
+    "model_id": "gpt-5.2",
+    "context_window": 1000000,
+    "max_completion_tokens": 128000,
+    "reasoning_effort": "medium",
+    "_note": "added 2026-08 vanilla sweep"
+  },
+  "opus-5": {
+    "provider": "anthropic",
+    "model_id": "claude-opus-5",
+    "context_window": 200000,
+    "max_completion_tokens": 32000,
+    "_note": "added 2026-08 vanilla sweep (plain call)"
+  },
+  "opus-4.8": {
+    "provider": "anthropic",
+    "model_id": "claude-opus-4-8",
+    "context_window": 200000,
+    "max_completion_tokens": 32000,
+    "_note": "added 2026-08 vanilla sweep (plain call)"
+  },
+  "opus-4.7": {
+    "provider": "anthropic",
+    "model_id": "claude-opus-4-7",
+    "context_window": 200000,
+    "max_completion_tokens": 32000,
+    "_note": "added 2026-08 vanilla sweep (plain call)"
+  },
+  "opus-4.6": {
+    "provider": "anthropic",
+    "model_id": "claude-opus-4-6",
+    "context_window": 200000,
+    "max_completion_tokens": 32000,
+    "_note": "added 2026-08 vanilla sweep (plain call)"
+  },
+  "opus-4.5": {
+    "provider": "anthropic",
+    "model_id": "claude-opus-4-5",
+    "context_window": 200000,
+    "max_completion_tokens": 32000,
+    "_note": "added 2026-08 vanilla sweep (plain call)"
+  },
+  "haiku-4.5": {
+    "provider": "anthropic",
+    "model_id": "claude-haiku-4-5-20251001",
+    "context_window": 200000,
+    "max_completion_tokens": 32000,
+    "_note": "added 2026-08 vanilla sweep (plain call)"
+  },
+  "opus-4.6-hi": {
+    "provider": "anthropic",
+    "model_id": "claude-opus-4-6",
+    "context_window": 1000000,
+    "max_completion_tokens": 64000,
+    "anthropic_effort": "high",
+    "_note": "n-context ablation: opus-4.6 at HIGH adaptive thinking"
+  },
+  "gpt-5.6-sol-hi": {
+    "provider": "openai",
+    "model_id": "gpt-5.6-sol",
+    "context_window": 1000000,
+    "max_completion_tokens": 128000,
+    "reasoning_effort": "high",
+    "_note": "n-context ablation: gpt-5.6-sol at HIGH reasoning effort"
+  }
+}

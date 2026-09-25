@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+# generated figure outputs
+**/figures/*.png
+**/figures/*.pdf
+*_bar.pdf
+*_bar.png

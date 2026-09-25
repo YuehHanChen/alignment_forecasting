@@ -1,0 +1,38 @@
+{
+ "B": 20000,
+ "n_rows": 1000,
+ "accuracy": {
+  "without": [
+   0.734,
+   0.762
+  ],
+  "with": [
+   0.817,
+   0.841
+  ],
+  "marginal_overlap": false,
+  "delta_mean": 0.081,
+  "delta_ci": [
+   0.0702,
+   0.0918
+  ],
+  "p_delta_gt_0": 1.0
+ },
+ "F1": {
+  "without": [
+   0.645,
+   0.685
+  ],
+  "with": [
+   0.789,
+   0.819
+  ],
+  "marginal_overlap": false,
+  "delta_mean": 0.1384,
+  "delta_ci": [
+   0.1228,
+   0.1541
+  ],
+  "p_delta_gt_0": 1.0
+ }
+}

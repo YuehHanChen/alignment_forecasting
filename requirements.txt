@@ -1,0 +1,29 @@
+# AF_repo — reproduction dependencies.
+# Python 3.11+ recommended. Install with:  pip install -r requirements.txt
+# (Tinker + Petri have extra install steps — see the notes at the bottom and the README.)
+
+# ---- core analysis / scoring (the offline reproduction path needs only these) ----
+numpy
+scipy
+scikit-learn
+statsmodels          # lr_diagnostics.py only
+python-dotenv
+tqdm
+matplotlib           # only for the SFT scorer (plot_methods.py) + repro snapshot; core scoring does not need it
+
+# ---- API clients (generation / fine-tuning / eval / forecasting stages) ----
+openai               # OpenAI direct + (base_url override) OpenRouter
+anthropic            # Anthropic forecasters
+httpx
+
+# ---- benchmark construction ----
+datasets             # HuggingFace, for pulling DOLCI / UltraChat base pools (build_afb_expansion_datasets.py)
+
+# ---- open-weight fine-tuning + sampling (Tinker) ----
+transformers         # Qwen3 chat-template rendering in tinker_proxy.py
+# tinker             # Tinker SDK — install per your Tinker account (not on PyPI); needed for open-model FT + eval
+# tinker-cookbook    # Tinker cookbook (supervised.train, renderers) — install alongside the Tinker SDK
+
+# ---- Petri behavioral audit (Stage 5e) — install in a SEPARATE venv (see README) ----
+# inspect-ai
+# inspect-petri      # https://github.com/safety-research/petri  (provides `inspect eval inspect_petri/audit`)
